@@ -398,6 +398,9 @@ public class OneGame extends GameEngine {
                         //System.out.println(displayList);
                     }
                 }
+                if (displayList.get(i) instanceof UndeadMob){
+                    ((UndeadMob)displayList.get(i)).floats();
+                }
                 
                 
             }
@@ -469,7 +472,7 @@ public class OneGame extends GameEngine {
             Enemies slime = new slime(startingX,startingY+78);
             displayList.add(slime);
         }
-        else if (value<=35){
+        else if (value<=34){
             int oneHalf = rand.nextInt(0,2);
             if (oneHalf ==1){
                 startingX = 1;
@@ -481,6 +484,19 @@ public class OneGame extends GameEngine {
             Enemies necromancer = new necromancer(startingX,startingY);
             displayList.add(necromancer);
         }
+        else if (value<=38){
+            int oneHalf = rand.nextInt(0,2);
+            if (oneHalf ==1){
+                startingX = 1;
+            }
+            else{
+                startingX = 900-97;
+            }
+            int startingY = 10;
+            Enemies Deadguy = new UndeadMob(startingX,startingY);
+            displayList.add(Deadguy);
+        }
+
 
             
     }
