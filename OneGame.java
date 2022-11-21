@@ -472,7 +472,7 @@ public class OneGame extends GameEngine {
             Enemies slime = new slime(startingX,startingY+78);
             displayList.add(slime);
         }
-        else if (value<=34){
+        else if (value<=33){
             int oneHalf = rand.nextInt(0,2);
             if (oneHalf ==1){
                 startingX = 1;
@@ -490,9 +490,9 @@ public class OneGame extends GameEngine {
                 startingX = 1;
             }
             else{
-                startingX = 900-97;
+                startingX = 900-110;
             }
-            int startingY = 10;
+            int startingY = 15;
             Enemies Deadguy = new UndeadMob(startingX,startingY);
             displayList.add(Deadguy);
         }

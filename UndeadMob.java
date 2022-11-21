@@ -6,6 +6,9 @@ public class UndeadMob extends Enemies implements canCollide{
         private static final String[] Undeadmob_idle_left = new String[8];
         private static final String[] Undeadmob__Appear_right = new String[17];
         private static final String[] Undeadmob_Appear_left = new String[17];
+        private static final String[] Summon_Right = new String[8];
+        private static final String[] Summon_Left = new String[8];
+
         //Location of image file to be drawn for an AvoidEntity
         //Dimensions of the AvoidEntity    
         private static final int AVOID_WIDTH = (int)(12*2);
@@ -19,6 +22,8 @@ public class UndeadMob extends Enemies implements canCollide{
         private boolean right = false;
         private int counter;
         private int downOrUp;
+        private int pickAnimation;
+        private int zeroOneorTwo = 0;
         
         //Speed that the avoid moves each time the game scrolls
         public double AVOID_SCROLL_SPEED = 5;
@@ -34,10 +39,13 @@ public class UndeadMob extends Enemies implements canCollide{
             scrollSpeed = 1;
             counter = 0;
             downOrUp  = rand.nextInt(0,2);
+            pickAnimation = rand.nextInt(0,101);
 
             for (int i =0; i<Undeadmob_idle_right.length;i++){
                 Undeadmob_idle_right[i] = "sprites/UndeadMob/Idle/IdleRight/idle" + i + ".png";
                 Undeadmob_idle_left[i] = "sprites/UndeadMob/Idle/IdleLeft/idle" + i + ".png";
+                Summon_Right[i] = "sprites/UndeadMob/Summon/SummonRight/summon" + i + ".png";
+                Summon_Right[i] = "sprites/UndeadMob/Summon/SummonRight/summon" + i + ".png";
             }
             for (int i =0; i<Undeadmob__Appear_right.length;i++){
                 Undeadmob__Appear_right[i] = "sprites/UndeadMob/Appear/AppearRight/Appear" + i + ".png";
@@ -59,7 +67,7 @@ public class UndeadMob extends Enemies implements canCollide{
             }
         }
         
-        public void floats (){
+        public int floats (){
             if (counter==0){
                 setWidth(12*2);
                 setHeight(13*2);
@@ -230,14 +238,100 @@ public class UndeadMob extends Enemies implements canCollide{
                     setImageName(Undeadmob_Appear_left[16]);
                 }
             }
-            else if(counter==102){
-                int pickAnimation = rand.nextInt();
+            else if (counter==104){
+                setWidth(45*2);
+                setHeight(62*2);
+                if (right){
+                    setImageName(Summon_Right[0]);
+                }
+                else{
+                    setImageName(Summon_Left[0]);
+                }
             }
+            else if (counter==112){
+                setWidth(48*2);
+                setHeight(67*2);
+                if (right){
+                    setImageName(Summon_Right[1]);
+                }
+                else{
+                    setImageName(Summon_Left[1]);
+                }
+            }
+            else if (counter==120){
+                setWidth(53*2);
+                setHeight(73*2);
+                if (right){
+                    setImageName(Summon_Right[2]);
+                }
+                else{
+                    setImageName(Summon_Left[2]);
+                }
+            }
+            else if (counter==128){
+                setWidth(55*2);
+                setHeight(69*2);
+                if (right){
+                    setImageName(Summon_Right[3]);
+                }
+                else{
+                    setImageName(Summon_Left[3]);
+                }
+            }
+            else if (counter==136){
+                setWidth(48*2);
+                setHeight(67*2);
+                if (right){
+                    setImageName(Summon_Right[4]);
+                }
+                else{
+                    setImageName(Summon_Left[4]);
+                }
+            }
+            else if (counter==144){
+                setWidth(53*2);
+                setHeight(73*2);
+                if (right){
+                    setImageName(Summon_Right[5]);
+                }
+                else{
+                    setImageName(Summon_Left[5]);
+                }
+            }
+            else if (counter==152){
+                setWidth(48*2);
+                setHeight(67*2);
+                if (right){
+                    setImageName(Summon_Right[6]);
+                }
+                else{
+                    setImageName(Summon_Left[6]);
+                }
+            }
+            else if (counter==160){
+                setWidth(45*2);
+                setHeight(62*2);
+                if (right){
+                    setImageName(Summon_Right[7]);
+                }
+                else{
+                    setImageName(Summon_Left[7]);
+                }
+            }
+            
+
+            if (pickAnimation<=40){
+
+            }
+            else{
+
+            }   
 
             if (counter>=640){
                 setX(2000);
             }
             counter++;
+            return zeroOneorTwo;
         }
         
         public double getScrollSpeed(){
