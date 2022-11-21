@@ -4,6 +4,8 @@ import java.util.*;
 public class UndeadMob extends Enemies implements canCollide{
         private static final String[] Undeadmob_idle_right = new String[8];
         private static final String[] Undeadmob_idle_left = new String[8];
+        private static final String[] Undeadmob__Appear_right = new String[17];
+        private static final String[] Undeadmob_Appear_left = new String[17];
         //Location of image file to be drawn for an AvoidEntity
         //Dimensions of the AvoidEntity    
         private static final int AVOID_WIDTH = (int)(45*2);
@@ -36,6 +38,10 @@ public class UndeadMob extends Enemies implements canCollide{
             for (int i =0; i<Undeadmob_idle_right.length;i++){
                 Undeadmob_idle_right[i] = "sprites/UndeadMob/Idle/IdleRight/idle" + i + ".png";
                 Undeadmob_idle_left[i] = "sprites/UndeadMob/Idle/IdleLeft/idle" + i + ".png";
+            }
+            for (int i =0; i<Undeadmob__Appear_right.length;i++){
+                Undeadmob__Appear_right[i] = "sprites/UndeadMob/Appear/AppearRight/Appear" + i + ".png";
+                Undeadmob_Appear_left[i] = "sprites/UndeadMob/Appear/AppearLeft/Appear" + i + ".png";
             }
             if (startingX>450){
                 left=true;
