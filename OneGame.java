@@ -64,7 +64,7 @@ public class OneGame extends GameEngine {
     int jumpCounter = 2;
     int dashCounter =0;
     int dashTimer = 0;
-    
+    boolean isUndeadMob = false;
     
     public OneGame(){
         this(DEFAULT_WIDTH, DEFAULT_HEIGHT);
@@ -379,6 +379,7 @@ public class OneGame extends GameEngine {
     
     //Scroll all scrollable entities per their respective scroll speeds
     protected void scrollEntities(){
+        isUndeadMob = false;
         for (int i = 0; i < displayList.size(); i++){
             if (displayList.get(i) instanceof canCollide){
                 if (displayList.get(i) instanceof lavaProjectile){
@@ -399,10 +400,9 @@ public class OneGame extends GameEngine {
                     }
                 }
                 if (displayList.get(i) instanceof UndeadMob){
+                    isUndeadMob = true;
                     ((UndeadMob)displayList.get(i)).floats();
                 }
-                
-                
             }
         }
     }
@@ -484,7 +484,7 @@ public class OneGame extends GameEngine {
             Enemies necromancer = new necromancer(startingX,startingY);
             displayList.add(necromancer);
         }
-        else if (value<=40){
+        else if (value<=40 && isUndeadMob==false){
             int oneHalf = rand.nextInt(0,2);
             if (oneHalf ==1){
                 startingX = 1;

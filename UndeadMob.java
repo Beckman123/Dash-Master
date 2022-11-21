@@ -6,8 +6,8 @@ public class UndeadMob extends Enemies implements canCollide{
         private static final String[] Undeadmob_idle_left = new String[8];
         private static final String[] Undeadmob__Appear_right = new String[17];
         private static final String[] Undeadmob_Appear_left = new String[17];
-        private static final String[] Summon_Right = new String[8];
-        private static final String[] Summon_Left = new String[8];
+        private static final String[] Summon_Right = new String[7];
+        private static final String[] Summon_Left = new String[7];
 
         //Location of image file to be drawn for an AvoidEntity
         //Dimensions of the AvoidEntity    
@@ -44,8 +44,10 @@ public class UndeadMob extends Enemies implements canCollide{
             for (int i =0; i<Undeadmob_idle_right.length;i++){
                 Undeadmob_idle_right[i] = "sprites/UndeadMob/Idle/IdleRight/idle" + i + ".png";
                 Undeadmob_idle_left[i] = "sprites/UndeadMob/Idle/IdleLeft/idle" + i + ".png";
+            }
+            for (int i =0; i<Summon_Left.length;i++){
                 Summon_Right[i] = "sprites/UndeadMob/Summon/SummonRight/summon" + i + ".png";
-                Summon_Right[i] = "sprites/UndeadMob/Summon/SummonRight/summon" + i + ".png";
+                Summon_Left[i] = "sprites/UndeadMob/Summon/SummonLeft/summon" + i + ".png";
             }
             for (int i =0; i<Undeadmob__Appear_right.length;i++){
                 Undeadmob__Appear_right[i] = "sprites/UndeadMob/Appear/AppearRight/Appear" + i + ".png";
@@ -68,6 +70,7 @@ public class UndeadMob extends Enemies implements canCollide{
         }
         
         public int floats (){
+            setY(5*Math.sin((Math.PI/100)*counter)+(double)startingY);
             if (counter==0){
                 setWidth(12*2);
                 setHeight(13*2);
@@ -277,6 +280,12 @@ public class UndeadMob extends Enemies implements canCollide{
                 else{
                     setImageName(Summon_Left[3]);
                 }
+                if (pickAnimation<=35){
+                    zeroOneorTwo = 1;
+                }
+                else{
+                    zeroOneorTwo = 2;
+                }   
             }
             else if (counter==136){
                 setWidth(48*2);
@@ -306,16 +315,6 @@ public class UndeadMob extends Enemies implements canCollide{
                 }
                 else{
                     setImageName(Summon_Left[6]);
-                }
-            }
-            else if (counter==160){
-                setWidth(45*2);
-                setHeight(62*2);
-                if (right){
-                    setImageName(Summon_Right[7]);
-                }
-                else{
-                    setImageName(Summon_Left[7]);
                 }
             }
             

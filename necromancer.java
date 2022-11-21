@@ -59,13 +59,11 @@ public class necromancer extends Enemies implements canCollide{
         
         public boolean floats (boolean isDashing){
             skullSpawn = false;
-            if (counter%3 ==0){
-                if (downOrUp == 0){
-                    setY(30*Math.sin((Math.PI/50)*counter/3)+(double)startingY);
-                } 
-                else{
-                    setY((-30*Math.sin((Math.PI/50)*counter/3)+(double)startingY));
-                }
+            if (downOrUp == 0){
+                setY(30*Math.sin((Math.PI/150)*counter)+(double)startingY);
+            } 
+            else{
+                setY((-30*Math.sin((Math.PI/150)*counter)+(double)startingY));
             }
             if (counter==7||counter==633){
                 setWidth((int)(57*2.3));
