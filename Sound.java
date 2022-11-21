@@ -4,6 +4,9 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.net.URL;
 
+// Using guide:
+// https://www.youtube.com/watch?v=nUHh_J2Acy8&list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq&index=9
+
 public class Sound {
 
     Clip clip;
