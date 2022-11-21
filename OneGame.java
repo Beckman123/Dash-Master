@@ -484,7 +484,7 @@ public class OneGame extends GameEngine {
             Enemies necromancer = new necromancer(startingX,startingY);
             displayList.add(necromancer);
         }
-        else if (value<=38){
+        else if (value<=40){
             int oneHalf = rand.nextInt(0,2);
             if (oneHalf ==1){
                 startingX = 1;
