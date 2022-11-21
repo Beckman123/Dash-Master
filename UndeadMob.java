@@ -24,7 +24,7 @@ public class UndeadMob extends Enemies implements canCollide{
         private int downOrUp;
         private int pickAnimation;
         private int zeroOneorTwo = 0;
-        
+        private int crowCounter = 0;
         //Speed that the avoid moves each time the game scrolls
         public double AVOID_SCROLL_SPEED = 5;
         
@@ -70,6 +70,7 @@ public class UndeadMob extends Enemies implements canCollide{
         }
         
         public int floats (){
+            zeroOneorTwo = 0;
             setY(5*Math.sin((Math.PI/100)*counter)+(double)startingY);
             if (counter==0){
                 setWidth(12*2);
@@ -241,7 +242,7 @@ public class UndeadMob extends Enemies implements canCollide{
                     setImageName(Undeadmob_Appear_left[16]);
                 }
             }
-            else if (counter==104){
+            else if (counter==99||counter ==162){
                 setWidth(45*2);
                 setHeight(62*2);
                 if (right){
@@ -251,7 +252,7 @@ public class UndeadMob extends Enemies implements canCollide{
                     setImageName(Summon_Left[0]);
                 }
             }
-            else if (counter==112){
+            else if (counter==108||counter ==171){
                 setWidth(48*2);
                 setHeight(67*2);
                 if (right){
@@ -261,7 +262,7 @@ public class UndeadMob extends Enemies implements canCollide{
                     setImageName(Summon_Left[1]);
                 }
             }
-            else if (counter==120){
+            else if (counter==117||counter ==180){
                 setWidth(53*2);
                 setHeight(73*2);
                 if (right){
@@ -271,7 +272,8 @@ public class UndeadMob extends Enemies implements canCollide{
                     setImageName(Summon_Left[2]);
                 }
             }
-            else if (counter==128){
+            else if (counter==126||counter ==189){
+                
                 setWidth(55*2);
                 setHeight(69*2);
                 if (right){
@@ -280,14 +282,17 @@ public class UndeadMob extends Enemies implements canCollide{
                 else{
                     setImageName(Summon_Left[3]);
                 }
-                if (pickAnimation<=35){
+                if (pickAnimation<=65){
                     zeroOneorTwo = 1;
                 }
                 else{
-                    zeroOneorTwo = 2;
+                    if (crowCounter ==0){
+                        zeroOneorTwo = 2;
+                    }
+                    crowCounter++;
                 }   
             }
-            else if (counter==136){
+            else if (counter==135||counter ==198){
                 setWidth(48*2);
                 setHeight(67*2);
                 if (right){
@@ -297,7 +302,7 @@ public class UndeadMob extends Enemies implements canCollide{
                     setImageName(Summon_Left[4]);
                 }
             }
-            else if (counter==144){
+            else if (counter==144||counter ==207){
                 setWidth(53*2);
                 setHeight(73*2);
                 if (right){
@@ -307,7 +312,7 @@ public class UndeadMob extends Enemies implements canCollide{
                     setImageName(Summon_Left[5]);
                 }
             }
-            else if (counter==152){
+            else if (counter==153||counter ==216){
                 setWidth(48*2);
                 setHeight(67*2);
                 if (right){
